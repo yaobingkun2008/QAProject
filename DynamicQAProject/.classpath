@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/软件工程/实验/web struts组件/struts2-core-2.0.14.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/软件工程/实验/web struts组件/xwork-2.0.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/软件工程/实验/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
