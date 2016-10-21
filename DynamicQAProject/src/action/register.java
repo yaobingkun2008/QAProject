@@ -16,12 +16,12 @@ public class register{//这个类用于截取注册的信息
 		{
 			if(this.password.equals(this.confirmpassword)==false)
 			{
-				return "passworderror";
+				return "over";
 			}
 		}
 		else
 		{
-			return "emptyerror";
+			return "over";
 		}
 		/*下面验证是否注册名重复*/
 		Connection a1 = new initialize().getlink();//调用函数进行初始化
@@ -42,7 +42,7 @@ public class register{//这个类用于截取注册的信息
 		}
 		if(isrepeat == true)
 		{
-			return "nameexist";
+			return "over";
 		}
 		else//没有重复，可以插入
 		{
@@ -81,7 +81,7 @@ public class register{//这个类用于截取注册的信息
 	        {
 	        	e3.printStackTrace();
 	        }
-			return "insertsuccess";//插入成功了
+			return "over";//插入成功了
 		}
 		/*这样就插入成功了*/
 	}

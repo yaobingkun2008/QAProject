@@ -7,6 +7,8 @@
 	<constant name="struts.devMode" value="true" />
 	
 	<package name="struts2" namespace="/" extends="struts-default">
-		
+		<action name="registe" class = "action.register" method = "insert_user">
+			<result name="over">/index.html</result>
+		</action>
 	</package>
 </struts>
