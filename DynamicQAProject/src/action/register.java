@@ -1,26 +1,30 @@
 package action;
 
 import java.sql.*;
+//import com.opensymphony.xwork2.ActionSupport; 
 
-public class register{//这个类用于截取注册的信息
+public class register 
+{ //这个类用于截取注册的信息
 	private String name;
 	private String password;
 	private String email;
 	private String userid;
 	private String friends;
 	private String confirmpassword;
-	
-	public String insert_user()
+	private String message;
+	public String insert_user() 
 	{
 		if(this.name.length()!=0 && this.email.length()!=0 && this.password.length()!=0)
 		{
 			if(this.password.equals(this.confirmpassword)==false)
 			{
+				setmessage("两次输入的密码不匹配！");
 				return "over";
 			}
 		}
 		else
 		{
+			setmessage("以上任何一项信息不能为空！");
 			return "over";
 		}
 		/*下面验证是否注册名重复*/
@@ -42,6 +46,7 @@ public class register{//这个类用于截取注册的信息
 		}
 		if(isrepeat == true)
 		{
+			setmessage("用户名已存在!");
 			return "over";
 		}
 		else//没有重复，可以插入
@@ -72,15 +77,22 @@ public class register{//这个类用于截取注册的信息
 	        {
 	        	String sql4="insert into user(Name,PassWord,Email,UserID) values(?,?,?,?)";
 	            PreparedStatement ps=a1.prepareStatement(sql4);
+	            
+	            System.out.println(this.name);
+	            System.out.println(this.password);
+	            System.out.println(this.email);
+	            
 	            ps.setString(1, this.name);
 	            ps.setString(2, this.password);
 	            ps.setString(3, this.email);
 	            ps.setString(4,	String.valueOf(idnum));
+	            ps.executeUpdate();
 	        }
 	        catch(Exception e3)
 	        {
 	        	e3.printStackTrace();
 	        }
+			setmessage("注册成功！快去登录吧！");
 			return "over";//插入成功了
 		}
 		/*这样就插入成功了*/
@@ -101,6 +113,14 @@ public class register{//这个类用于截取注册的信息
 	public void setconfirmpassword(String confirmpassword)
 	{
 		this.confirmpassword = confirmpassword;
+	}
+	public void setmessage(String message)
+	{
+		this.message = message;
+	}
+	public String getmessage()
+	{
+		return this.message;
 	}
 	public String getname()
 	{
