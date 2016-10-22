@@ -10,5 +10,10 @@
 		<action name="registe" class = "action.register" method = "insert_user">
 			<result name="over">/index.html</result>
 		</action>
+		
+		<action name="login" class = "action.login" method = "login_user">
+			<result name="loginfailed">/index.html</result>
+			<result name="loginsuccess"></result>
+		</action>
 	</package>
 </struts>
