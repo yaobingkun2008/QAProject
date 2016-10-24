@@ -8,12 +8,12 @@
 	
 	<package name="struts2" namespace="/" extends="struts-default">
 		<action name="registe" class = "action.register" method = "insert_user">
-			<result name="over">/index.html</result>
+			<result name="over">/welcome.html</result>
 		</action>
 		
 		<action name="login" class = "action.login" method = "login_user">
-			<result name="loginfailed">/index.html</result>
-			<result name="loginsuccess"></result>
+			<result name="loginfailed">/welcome.html</result>
+			<result name="loginsuccess">/index.html</result>
 		</action>
 	</package>
 </struts>
